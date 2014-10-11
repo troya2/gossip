@@ -49,7 +49,9 @@
 
     GSUserAgent *agent = [GSUserAgent sharedAgent];
     if (_accountId != PJSUA_INVALID_ID && [agent status] != GSUserAgentStateDestroyed) {
-        GSLogIfFails(pjsua_acc_del(_accountId));
+        if (pjsua_acc_is_valid(_accountId)) {
+            GSLogIfFails(pjsua_acc_del(_accountId));
+        }
         _accountId = PJSUA_INVALID_ID;
     }
 
@@ -92,6 +94,10 @@
     
     accConfig.cred_count = 1;
     accConfig.cred_info[0] = creds;
+    
+    // TROY - CT - Change to support SRTP
+    accConfig.use_srtp = PJMEDIA_SRTP_MANDATORY;
+    accConfig.srtp_secure_signaling = 0;
 
     // finish
     GSReturnNoIfFails(pjsua_acc_add(&accConfig, PJ_TRUE, &_accountId));    
@@ -109,9 +115,12 @@
 
 - (BOOL)disconnect {
     NSAssert(!!_config, @"GSAccount not configured.");
-        
-    GSReturnNoIfFails(pjsua_acc_set_online_status(_accountId, PJ_FALSE));
-    GSReturnNoIfFails(pjsua_acc_set_registration(_accountId, PJ_FALSE));
+    
+    if (self.status == GSAccountStatusConnected) {
+        GSReturnNoIfFails(pjsua_acc_set_online_status(_accountId, PJ_FALSE));
+        GSReturnNoIfFails(pjsua_acc_set_registration(_accountId, PJ_FALSE));
+    }
+
     return YES;
 }
 
