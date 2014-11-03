@@ -14,6 +14,7 @@ GSConstSynthesize(GSSIPRegistrationDidStartNotification);
 GSConstSynthesize(GSSIPCallStateDidChangeNotification);
 GSConstSynthesize(GSSIPIncomingCallNotification);
 GSConstSynthesize(GSSIPCallMediaStateDidChangeNotification);
+GSConstSynthesize(GSSIPMwiInfoNotification);
 
 GSConstSynthesize(GSVolumeDidChangeNotification);
 

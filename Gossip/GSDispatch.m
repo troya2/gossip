@@ -13,6 +13,7 @@ void onRegistrationState(pjsua_acc_id accountId);
 void onIncomingCall(pjsua_acc_id accountId, pjsua_call_id callId, pjsip_rx_data *rdata);
 void onCallMediaState(pjsua_call_id callId);
 void onCallState(pjsua_call_id callId, pjsip_event *e);
+void onMwiInfo(pjsua_acc_id accountId, pjsua_mwi_info *mwiInfo);
 
 
 static dispatch_queue_t _queue = NULL;
@@ -30,6 +31,7 @@ static dispatch_queue_t _queue = NULL;
     uaConfig->cb.on_incoming_call = &onIncomingCall;
     uaConfig->cb.on_call_media_state = &onCallMediaState;
     uaConfig->cb.on_call_state = &onCallState;
+    uaConfig->cb.on_mwi_info = &onMwiInfo;
 }
 
 
@@ -110,6 +112,18 @@ static dispatch_queue_t _queue = NULL;
                         userInfo:info];
 }
 
++ (void)dispatchMwiInfo:(pjsua_mwi_info *)info accountId:(pjsua_acc_id)accountId {
+    NSLog(@"Gossip: dispatchMwiInfo(%d)", accountId);
+    
+    NSDictionary *dict = @{GSSIPAccountIdKey:@(accountId),
+                           GSSIPDataKey:[NSValue valueWithPointer:info->rdata]};
+                           
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    [center postNotificationName:GSSIPMwiInfoNotification
+                          object:self
+                        userInfo:dict];
+}
+
 @end
 
 
@@ -150,4 +164,8 @@ void onCallMediaState(pjsua_call_id callId) {
 
 void onCallState(pjsua_call_id callId, pjsip_event *e) {
     dispatch(^{ [GSDispatch dispatchCallState:callId event:e]; });
+}
+
+void onMwiInfo(pjsua_acc_id accountId, pjsua_mwi_info *mwiInfo) {
+    dispatch(^{ [GSDispatch dispatchMwiInfo:mwiInfo accountId:accountId]; });
 }

@@ -16,6 +16,7 @@ GSConstDefine(GSSIPCallStateDidChangeNotification);
 GSConstDefine(GSSIPIncomingCallNotification);
 GSConstDefine(GSSIPCallMediaStateDidChangeNotification);
 GSConstDefine(GSSIPVolumeDidChangeNotification);
+GSConstDefine(GSSIPMwiInfoNotification);
 
 GSConstDefine(GSVolumeDidChangeNotification);
 

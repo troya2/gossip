@@ -39,6 +39,10 @@
                    selector:@selector(registrationStateDidChange:)
                        name:GSSIPRegistrationStateDidChangeNotification
                      object:[GSDispatch class]];
+        [center addObserver:self
+                   selector:@selector(didReceiveMwiNotification:)
+                       name:GSSIPMwiInfoNotification
+                     object:[GSDispatch class]];
     }
     return self;
 }
@@ -193,6 +197,18 @@
     
     __block id self_ = self;
     dispatch_async(dispatch_get_main_queue(), ^{ [self_ setStatus:accStatus]; });
+}
+
+- (void)didReceiveMwiNotification:(NSNotification *)notif {
+    __block GSAccount *self_ = self;
+    __block id delegate_ = _delegate;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (![delegate_ respondsToSelector:@selector(accountDidReceiveMwiNotification:)])
+            return; // call is disposed/hungup on dealloc
+        
+        [delegate_ performSelector:@selector(accountDidReceiveMwiNotification:)
+                        withObject:self_];
+    });
 }
 
 @end
