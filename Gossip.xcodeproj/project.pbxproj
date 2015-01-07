@@ -7,6 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		05E9BF351A5CF4CB001DE2F8 /* Gossip.h in Headers */ = {isa = PBXBuildFile; fileRef = 224EFF7815A6BA9000CD541C /* Gossip.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		05E9BF361A5CF5F9001DE2F8 /* GSAccount.h in Headers */ = {isa = PBXBuildFile; fileRef = 224EFF7F15A6C7D100CD541C /* GSAccount.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		05E9BF371A5CF5FE001DE2F8 /* GSCall.h in Headers */ = {isa = PBXBuildFile; fileRef = 22D43D8415AAC1C40099C79F /* GSCall.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		05E9BF381A5CF60D001DE2F8 /* GSCodecInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 221BED8115B0338F00464679 /* GSCodecInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		05E9BF391A5CF60D001DE2F8 /* GSDispatch.h in Headers */ = {isa = PBXBuildFile; fileRef = 222D262E15A702D00035CB04 /* GSDispatch.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		05E9BF3A1A5CF60D001DE2F8 /* GSIncomingCall.h in Headers */ = {isa = PBXBuildFile; fileRef = 22B7D11715AE95A50045C54A /* GSIncomingCall.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		05E9BF3B1A5CF60D001DE2F8 /* GSNotifications.h in Headers */ = {isa = PBXBuildFile; fileRef = 22D43D8015AAA5270099C79F /* GSNotifications.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		05E9BF3C1A5CF60D001DE2F8 /* GSOutgoingCall.h in Headers */ = {isa = PBXBuildFile; fileRef = 22B7D10E15AE8A8E0045C54A /* GSOutgoingCall.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		05E9BF3D1A5CF617001DE2F8 /* GSRingback.h in Headers */ = {isa = PBXBuildFile; fileRef = 226F92AE15DB9CB00013A997 /* GSRingback.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		05E9BF3E1A5CF617001DE2F8 /* GSUserAgent.h in Headers */ = {isa = PBXBuildFile; fileRef = 22AD82DB15A5A1550000D05C /* GSUserAgent.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		05E9BF3F1A5CF621001DE2F8 /* GSAccountConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 224EFF8415A6CC1F00CD541C /* GSAccountConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		05E9BF401A5CF621001DE2F8 /* GSConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 224EFF7315A6B97F00CD541C /* GSConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		05E9BF411A5CF62B001DE2F8 /* GSPJUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 224A004215A6FA2600CC5890 /* GSPJUtil.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		05E9BF421A5CF62B001DE2F8 /* PJSIP.h in Headers */ = {isa = PBXBuildFile; fileRef = 22AD82EA15A5A3CC0000D05C /* PJSIP.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		05E9BF431A5CF62B001DE2F8 /* Util.h in Headers */ = {isa = PBXBuildFile; fileRef = 224EFF7115A6B2A900CD541C /* Util.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		221BED7F15B0310000464679 /* GSECodecsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 221BED7E15B0310000464679 /* GSECodecsViewController.m */; };
 		221BED8415B0338F00464679 /* GSCodecInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 221BED8215B0338F00464679 /* GSCodecInfo.m */; };
 		222D263115A702D00035CB04 /* GSDispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 222D262F15A702D00035CB04 /* GSDispatch.m */; };
@@ -383,6 +398,21 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05E9BF3C1A5CF60D001DE2F8 /* GSOutgoingCall.h in Headers */,
+				05E9BF391A5CF60D001DE2F8 /* GSDispatch.h in Headers */,
+				05E9BF3D1A5CF617001DE2F8 /* GSRingback.h in Headers */,
+				05E9BF361A5CF5F9001DE2F8 /* GSAccount.h in Headers */,
+				05E9BF3A1A5CF60D001DE2F8 /* GSIncomingCall.h in Headers */,
+				05E9BF401A5CF621001DE2F8 /* GSConfiguration.h in Headers */,
+				05E9BF411A5CF62B001DE2F8 /* GSPJUtil.h in Headers */,
+				05E9BF3E1A5CF617001DE2F8 /* GSUserAgent.h in Headers */,
+				05E9BF371A5CF5FE001DE2F8 /* GSCall.h in Headers */,
+				05E9BF3F1A5CF621001DE2F8 /* GSAccountConfiguration.h in Headers */,
+				05E9BF431A5CF62B001DE2F8 /* Util.h in Headers */,
+				05E9BF351A5CF4CB001DE2F8 /* Gossip.h in Headers */,
+				05E9BF421A5CF62B001DE2F8 /* PJSIP.h in Headers */,
+				05E9BF381A5CF60D001DE2F8 /* GSCodecInfo.h in Headers */,
+				05E9BF3B1A5CF60D001DE2F8 /* GSNotifications.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -640,6 +670,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = Gossip;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -658,6 +689,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = Gossip;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
