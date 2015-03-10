@@ -30,6 +30,8 @@ typedef enum {
 @property (nonatomic) unsigned int soundClockRate; ///< PJSIP sound clock rate.
 @property (nonatomic) float volumeScale; ///< Used for scaling volumes up and down.
 
+@property (nonatomic) unsigned int echoCancelationTail;
+
 @property (nonatomic, strong) GSAccountConfiguration *account;
 
 + (id)defaultConfiguration;
