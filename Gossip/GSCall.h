@@ -66,6 +66,9 @@ typedef NS_ENUM(NSInteger, GSCallMediaState) {
 - (BOOL)hold;
 - (BOOL)releaseHold;
 
+- (BOOL)holdForGSMCall; /// Stop the PJSIP call when a GSM call comes in
+- (BOOL)resumeFromGSMCall; /// Reestablish the PJSIP call after the GSM call ends
+
 - (NSString *)remoteInfo;
 - (NSString *)remoteContact;
 
