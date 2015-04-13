@@ -337,4 +337,8 @@
     return YES;
 }
 
+- (void)send180Ringing {
+    GSReturnNoIfFails(pjsua_call_answer(self.callId, 180, NULL, NULL));
+}
+
 @end
