@@ -97,6 +97,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		05B285871AEF2E3E00E87B2F /* pjsip */ = {isa = PBXFileReference; lastKnownFileType = folder; name = pjsip; path = pjsip/src/pjsip/src/pjsip; sourceTree = "<group>"; };
+		05B285881AEF304700E87B2F /* pjsip-simple */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "pjsip-simple"; path = "pjsip/src/pjsip/src/pjsip-simple"; sourceTree = "<group>"; };
+		05B285891AEF304700E87B2F /* pjsip-ua */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "pjsip-ua"; path = "pjsip/src/pjsip/src/pjsip-ua"; sourceTree = "<group>"; };
+		05B2858A1AEF304700E87B2F /* pjsua-lib */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "pjsua-lib"; path = "pjsip/src/pjsip/src/pjsua-lib"; sourceTree = "<group>"; };
+		05B2858B1AEF304700E87B2F /* pjsua2 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = pjsua2; path = pjsip/src/pjsip/src/pjsua2; sourceTree = "<group>"; };
+		05B2858C1AEF304700E87B2F /* pjsua2-test */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "pjsua2-test"; path = "pjsip/src/pjsip/src/pjsua2-test"; sourceTree = "<group>"; };
+		05B2858D1AEF308B00E87B2F /* pjmedia */ = {isa = PBXFileReference; lastKnownFileType = folder; name = pjmedia; path = pjsip/src/pjmedia/src/pjmedia; sourceTree = "<group>"; };
+		05B2858E1AEF308B00E87B2F /* pjmedia-audiodev */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "pjmedia-audiodev"; path = "pjsip/src/pjmedia/src/pjmedia-audiodev"; sourceTree = "<group>"; };
+		05B2858F1AEF308B00E87B2F /* pjmedia-codec */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "pjmedia-codec"; path = "pjsip/src/pjmedia/src/pjmedia-codec"; sourceTree = "<group>"; };
+		05B285901AEF308B00E87B2F /* pjmedia-videodev */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "pjmedia-videodev"; path = "pjsip/src/pjmedia/src/pjmedia-videodev"; sourceTree = "<group>"; };
 		221BED7D15B0310000464679 /* GSECodecsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSECodecsViewController.h; sourceTree = "<group>"; };
 		221BED7E15B0310000464679 /* GSECodecsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSECodecsViewController.m; sourceTree = "<group>"; };
 		221BED8115B0338F00464679 /* GSCodecInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSCodecInfo.h; sourceTree = "<group>"; };
@@ -302,6 +312,16 @@
 		22AD823815A5987C0000D05C = {
 			isa = PBXGroup;
 			children = (
+				05B285871AEF2E3E00E87B2F /* pjsip */,
+				05B285881AEF304700E87B2F /* pjsip-simple */,
+				05B285891AEF304700E87B2F /* pjsip-ua */,
+				05B2858A1AEF304700E87B2F /* pjsua-lib */,
+				05B2858B1AEF304700E87B2F /* pjsua2 */,
+				05B2858C1AEF304700E87B2F /* pjsua2-test */,
+				05B2858D1AEF308B00E87B2F /* pjmedia */,
+				05B2858E1AEF308B00E87B2F /* pjmedia-audiodev */,
+				05B2858F1AEF308B00E87B2F /* pjmedia-codec */,
+				05B285901AEF308B00E87B2F /* pjmedia-videodev */,
 				224EFF9315A6D27600CD541C /* ExampleApp */,
 				22AD824515A5987C0000D05C /* Frameworks */,
 				22AD824815A5987C0000D05C /* Gossip */,
@@ -441,6 +461,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 22AD825015A5987C0000D05C /* Build configuration list for PBXNativeTarget "Gossip" */;
 			buildPhases = (
+				05C9C9411B332338007116F3 /* create config_site.h file if missing */,
 				22AD823F15A5987C0000D05C /* Sources */,
 				22AD824015A5987C0000D05C /* Frameworks */,
 				22AD824115A5987C0000D05C /* Headers */,
@@ -496,6 +517,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		05C9C9411B332338007116F3 /* create config_site.h file if missing */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "create config_site.h file if missing";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "mkdir -p \"$TARGET_BUILD_DIR/include/pj\" && touch \"$TARGET_BUILD_DIR/include/pj/config_site.h\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		224EFF8815A6D27600CD541C /* Sources */ = {
