@@ -115,6 +115,14 @@
     pjsua_transport_config transportConfig;
     pjsua_transport_config_default(&transportConfig);
     
+    switch (_config.qosType) {
+        case GSQOSTypeBestEffort: transportConfig.qos_type = PJ_QOS_TYPE_BEST_EFFORT; break;
+        case GSQOSTypeBackground: transportConfig.qos_type = PJ_QOS_TYPE_BACKGROUND; break;
+        case GSQOSTypeVideo: transportConfig.qos_type = PJ_QOS_TYPE_VIDEO; break;
+        case GSQOSTypeVoice: transportConfig.qos_type = PJ_QOS_TYPE_VOICE; break;
+        case GSQOSTypeControl: transportConfig.qos_type = PJ_QOS_TYPE_CONTROL; break;
+    }
+    
     pjsip_transport_type_e transportType = 0;
     switch (_config.transportType) {
         case GSUDPTransportType: transportType = PJSIP_TRANSPORT_UDP; break;
@@ -122,7 +130,7 @@
         case GSTCPTransportType: transportType = PJSIP_TRANSPORT_TCP; break;
         case GSTCP6TransportType: transportType = PJSIP_TRANSPORT_TCP6; break;
     }
-    
+   
     GSReturnNoIfFails(pjsua_transport_create(transportType, &transportConfig, &_transportId));
     [self setStatus:GSUserAgentStateConfigured];
 
