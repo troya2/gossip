@@ -167,6 +167,10 @@
     pjsua_call_reinvite(_callId, PJSUA_CALL_UNHOLD,nil);
 }
 
+- (BOOL)updateContact {
+    pjsua_call_reinvite(_callId, PJSUA_CALL_UPDATE_CONTACT, nil);
+}
+
 - (BOOL)disconnectAudioForGSMCall
 {
     int capture;
