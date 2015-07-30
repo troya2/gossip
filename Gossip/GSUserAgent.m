@@ -129,8 +129,10 @@
         case GSUDP6TransportType: transportType = PJSIP_TRANSPORT_UDP6; break;
         case GSTCPTransportType: transportType = PJSIP_TRANSPORT_TCP; break;
         case GSTCP6TransportType: transportType = PJSIP_TRANSPORT_TCP6; break;
+        case GSTLSTrannsportType: transportType = PJSIP_TRANSPORT_TLS; break;
+        case GSTLS6TransportType: transportType = PJSIP_TRANSPORT_TLS6; break;
     }
-   
+    
     GSReturnNoIfFails(pjsua_transport_create(transportType, &transportConfig, &_transportId));
     [self setStatus:GSUserAgentStateConfigured];
 
