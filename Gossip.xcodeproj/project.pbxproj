@@ -97,6 +97,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0516FBF11B73F3FD0053947D /* include */ = {isa = PBXFileReference; lastKnownFileType = folder; name = include; path = pjsip/src/pjsip/include; sourceTree = "<group>"; };
 		05B285871AEF2E3E00E87B2F /* pjsip */ = {isa = PBXFileReference; lastKnownFileType = folder; name = pjsip; path = pjsip/src/pjsip/src/pjsip; sourceTree = "<group>"; };
 		05B285881AEF304700E87B2F /* pjsip-simple */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "pjsip-simple"; path = "pjsip/src/pjsip/src/pjsip-simple"; sourceTree = "<group>"; };
 		05B285891AEF304700E87B2F /* pjsip-ua */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "pjsip-ua"; path = "pjsip/src/pjsip/src/pjsip-ua"; sourceTree = "<group>"; };
@@ -312,6 +313,7 @@
 		22AD823815A5987C0000D05C = {
 			isa = PBXGroup;
 			children = (
+				0516FBF11B73F3FD0053947D /* include */,
 				05B285871AEF2E3E00E87B2F /* pjsip */,
 				05B285881AEF304700E87B2F /* pjsip-simple */,
 				05B285891AEF304700E87B2F /* pjsip-ua */,
