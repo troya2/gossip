@@ -484,7 +484,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = GS;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "";
 			};
 			buildConfigurationList = 22AD823D15A5987C0000D05C /* Build configuration list for PBXProject "Gossip" */;
@@ -608,7 +608,6 @@
 					"\"$(SRCROOT)/pjsip/src/third_party/lib\"",
 				);
 				OTHER_LDFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = "net.chakrit.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -629,7 +628,6 @@
 				);
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				OTHER_LDFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = "net.chakrit.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -641,7 +639,6 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				ENABLE_TESTABILITY = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -659,7 +656,7 @@
 					"$(SRCROOT)/pjsip/src/third_party/srtp/crypto/include",
 					"$(SRCROOT)/pjsip/src/third_party/srtp/include",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				VALID_ARCHS = "arm64 armv7 armv7s x86_64 i386";
@@ -684,7 +681,7 @@
 					"$(SRCROOT)/pjsip/src/third_party/srtp/crypto/include",
 					"$(SRCROOT)/pjsip/src/third_party/srtp/include",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				SDKROOT = iphoneos;
 				VALID_ARCHS = "arm64 armv7 armv7s x86_64 i386";
 			};
