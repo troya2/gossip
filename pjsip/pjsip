@@ -82,6 +82,17 @@ echo
 _merge
 }
 
+function collect() {
+  _collect armv7
+  _collect armv7s
+  _collect arm64
+  _collect i386
+  _collect x86_64
+}
+
+function merge() {
+  _merge
+}
 
 function _build() {
 echo "$PRE BUILD"
@@ -90,13 +101,7 @@ echo ""
 
 cd "$BASE_DIR"/src
 cp "$BASE_DIR"/config_site.h "$BASE_DIR"/src/pjlib/include/pj
-
-# OpenSSL to support TLS (set in the pjsip compile script)
-OPENSSL=${HOME}/Projects/CelltrustTrunk/Pods/OpenSSL/
-export CFLAGS="${CFLAGS} -O2 -Wno-unused-label -I${OPENSSL}/opensslIncludes"
-export LDFLAGS="${LDFLAGS} -L${OPENSSL}/lib"
-
-ARCH="-arch $1" ./configure-iphone --with-ssl 2>&1 > "$BASE_DIR"/$1.log
+ARCH="-arch $1" ./configure-iphone 2>&1 > "$BASE_DIR"/$1.log
 
 make dep 2>&1 >> "$BASE_DIR"/$1.log
 make clean 2>&1 >> "$BASE_DIR"/$1.log
@@ -111,8 +116,8 @@ echo "$PRE COLLECT"
 cd "$BASE_DIR"
 mkdir -p lib/$1
 
-for x in `find src | grep "\.a$"`; do
-  cp -v ./$x ./lib/$1
+for x in `find src | grep "\.a$" | grep $1`; do
+  cp -v ./$x ./lib/$1/`basename ${x/-$1-/-}`
 done | tee "$BASE_DIR"/collect.log
 }
 
