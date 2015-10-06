@@ -47,4 +47,6 @@ typedef enum {
 - (BOOL)connect; ///< Connects and begin registering with the configured SIP registration server.
 - (BOOL)disconnect; ///< Unregister from the SIP registration server and disconnects.
 
+- (NSString *)statusText; ///< info.status_text from the underlying pjsip `info` data structure
+
 @end
