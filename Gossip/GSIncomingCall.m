@@ -9,6 +9,7 @@
 #import "GSCall+Private.h"
 #import "PJSIP.h"
 #import "Util.h"
+#import "GSPJUtil.h"
 
 
 @implementation GSIncomingCall
@@ -40,5 +41,21 @@
     [self setCallId:PJSUA_INVALID_ID];
     return YES;
 }
+
+- (BOOL)ignore {
+    NSAssert(self.callId != PJSUA_INVALID_ID, @"Call has already ended.");
+    
+    if (self.status != GSCallStatusDisconnected) {
+        pj_str_t reason = [GSPJUtil PJStringWithString:@"Ignored"];
+
+        GSReturnNoIfFails(pjsua_call_hangup(self.callId, 606, &reason, NULL));
+        
+        [self setStatus:GSCallStatusDisconnected];
+    }
+    
+    [self setCallId:PJSUA_INVALID_ID];
+    return YES;
+}
+
 
 @end

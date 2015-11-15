@@ -11,5 +11,6 @@
 @interface GSIncomingCall : GSCall
 
 - (id)initWithCallId:(int)callId toAccount:(GSAccount *)account;
+- (BOOL)ignore;
 
 @end
