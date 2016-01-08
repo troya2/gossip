@@ -22,8 +22,6 @@
     float _volume;
     float _micVolume;
     float _volumeScale;
-    int _captureDev;
-    int _playbackDev;
 }
 
 + (id)outgoingCallToUri:(NSString *)remoteUri fromAccount:(GSAccount *)account {
@@ -173,21 +171,15 @@
 
 - (BOOL)disconnectAudioForGSMCall
 {
-    int capture;
-    int playback;
-    
-    pjsua_get_snd_dev(&capture, &playback);
     pj_status_t status = pjsua_set_no_snd_dev();
-    
-    _captureDev = capture;
-    _playbackDev = playback;
     
     return (status == PJ_SUCCESS)?YES:NO;
 }
 
 - (BOOL)reconnectAudioAfterGSMCall
 {
-    pj_status_t status = pjsua_set_snd_dev(_captureDev, _playbackDev);
+    // TODO: Consioder creating a new connection, not reuse the old one since the old one may be invalid - how do we do this?
+    pj_status_t status = pjsua_set_snd_dev(PJMEDIA_AUD_DEFAULT_CAPTURE_DEV, PJMEDIA_AUD_DEFAULT_PLAYBACK_DEV);
     
     return (status == PJ_SUCCESS)?YES:NO;
 }
