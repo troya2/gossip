@@ -178,8 +178,12 @@
 
 - (BOOL)reconnectAudioAfterGSMCall
 {
-    // TODO: Consioder creating a new connection, not reuse the old one since the old one may be invalid - how do we do this?
-    pj_status_t status = pjsua_set_snd_dev(PJMEDIA_AUD_DEFAULT_CAPTURE_DEV, PJMEDIA_AUD_DEFAULT_PLAYBACK_DEV);
+    int capture_dev;
+    int playback_dev;
+    
+    pjsua_get_snd_dev( &capture_dev, &playback_dev);
+    
+    pj_status_t status = pjsua_set_snd_dev(capture_dev, playback_dev);
     
     return (status == PJ_SUCCESS)?YES:NO;
 }
