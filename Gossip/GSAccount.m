@@ -206,12 +206,14 @@
 - (void)didReceiveMwiNotification:(NSNotification *)notif {
     __block GSAccount *self_ = self;
     __block id delegate_ = _delegate;
+    
+    NSString *msgData = notif.userInfo[GSMsgInfoStringKey];
+    
     dispatch_async(dispatch_get_main_queue(), ^{
-        if (![delegate_ respondsToSelector:@selector(accountDidReceiveMwiNotification:)])
+        if (![delegate_ respondsToSelector:@selector(accountDidReceiveMwiNotification:msgData:)])
             return; // call is disposed/hungup on dealloc
         
-        [delegate_ performSelector:@selector(accountDidReceiveMwiNotification:)
-                        withObject:self_];
+        [delegate_ accountDidReceiveMwiNotification:self_ msgData:msgData];
     });
 }
 

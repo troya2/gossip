@@ -24,6 +24,7 @@ GSConstDefine(GSSIPAccountIdKey);
 GSConstDefine(GSSIPRenewKey);
 GSConstDefine(GSSIPCallIdKey);
 GSConstDefine(GSSIPDataKey);
+GSConstDefine(GSMsgInfoStringKey);
 
 GSConstDefine(GSVolumeKey);
 GSConstDefine(GSMicVolumeKey);

@@ -116,7 +116,8 @@ static dispatch_queue_t _queue = NULL;
     NSLog(@"Gossip: dispatchMwiInfo(%d)", accountId);
     
     NSDictionary *dict = @{GSSIPAccountIdKey:@(accountId),
-                           GSSIPDataKey:[NSValue valueWithPointer:info->rdata]};
+                           GSSIPDataKey:[NSValue valueWithPointer:info->rdata],
+                           GSMsgInfoStringKey:[NSString stringWithUTF8String:info->rdata->msg_info.msg_buf]};
                            
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     [center postNotificationName:GSSIPMwiInfoNotification
