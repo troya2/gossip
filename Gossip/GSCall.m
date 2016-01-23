@@ -342,10 +342,9 @@ static PJ_DEF(pj_status_t) on_pjsua_wav_file_end_callback(pjmedia_port* media_po
     dispatch_async(dispatch_get_main_queue(), ^{ [self_ setMediaState:mediaState]; });
 
     if (callInfo.media_status == PJSUA_CALL_MEDIA_ACTIVE) {
-        pjsua_conf_port_id callPort = pjsua_call_get_conf_port(_callId);
-        GSReturnIfFails(pjsua_conf_connect(callPort, 0));
-        GSReturnIfFails(pjsua_conf_connect(0, callPort));
-        
+        GSReturnIfFails(pjsua_conf_connect(callInfo.conf_slot, 0));
+        GSReturnIfFails(pjsua_conf_connect(0, callInfo.conf_slot));
+
         [self adjustVolume:_volume mic:_micVolume];
     }
 }
