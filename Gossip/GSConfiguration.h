@@ -39,7 +39,9 @@ typedef enum {
 
 @property (nonatomic) unsigned int clockRate; ///< PJSIP clock rate.
 @property (nonatomic) unsigned int soundClockRate; ///< PJSIP sound clock rate.
-@property (nonatomic) float volumeScale; ///< Used for scaling volumes up and down.
+@property (nonatomic) float volumeScaleTx; ///< Used for scaling volumes up and down.
+@property (nonatomic) float volumeScaleRx; ///< Used for scaling volumes up and down.
+@property (nonatomic) BOOL disableVAD; ///< When YES, voice audio detection is disabled.  Default is NO (enabled).
 @property (nonatomic) BOOL enableSRV; ///< Sets DNS to use 8.8.8.8 - beware if the carrier blocks this
 
 @property (nonatomic) unsigned int echoCancelationTail;

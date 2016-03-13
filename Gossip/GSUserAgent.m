@@ -97,6 +97,7 @@
     mediaConfig.clock_rate = _config.clockRate;
     mediaConfig.snd_clock_rate = _config.soundClockRate;
     mediaConfig.ec_tail_len = [config echoCancelationTail]; // not sure what this does (Siphon use this.)
+    mediaConfig.no_vad = config.disableVAD ? 1 : 0;
     
     GSReturnNoIfFails(pjsua_init(&uaConfig, &logConfig, &mediaConfig));
     

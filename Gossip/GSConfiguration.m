@@ -38,7 +38,11 @@
     _soundClockRate = 0;
     
     // default volume scale to 2.0 so 1.0 is twice as loud as PJSIP would normally emit.
-    _volumeScale = 2.0;
+    _volumeScaleTx = 2.0;
+    _volumeScaleRx = 2.0;
+
+    // default is to suppress silence (lack of voice)
+    _disableVAD = NO;
     
     _account = [GSAccountConfiguration defaultConfiguration];
     
@@ -63,7 +67,10 @@
 
     replica.clockRate = self.clockRate;
     replica.soundClockRate = self.soundClockRate;
-    replica.volumeScale = self.volumeScale;
+    replica.volumeScaleTx = self.volumeScaleTx;
+    replica.volumeScaleRx = self.volumeScaleRx;
+
+    replica.disableVAD = self.disableVAD;
 
     replica.account = [self.account copy];
     return replica;
