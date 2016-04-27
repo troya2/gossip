@@ -106,6 +106,9 @@
     accConfig.use_srtp = PJMEDIA_SRTP_MANDATORY;
     accConfig.srtp_secure_signaling = 0;
 
+    // TROY - CT - Allow setting of this by the caller
+    accConfig.use_rfc5626 = _config.useRfc5626;
+    
     // finish
     GSReturnNoIfFails(pjsua_acc_add(&accConfig, PJ_TRUE, &_accountId));    
     return YES;

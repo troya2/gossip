@@ -34,6 +34,8 @@
     _enableRingback = YES;
     _ringbackFilename = @"ringtone.wav";
     
+    _useRfc5626 = YES;
+    
     // can prevent registration for services which don't support it so NO by default.
     _enableStatusPublishing = NO;
     return self;
@@ -66,6 +68,8 @@
 
     replica.enableRingback = self.enableRingback;
     replica.ringbackFilename = self.ringbackFilename;
+    replica.useRfc5626 = self.useRfc5626;
+    
     return replica;
 }
 
